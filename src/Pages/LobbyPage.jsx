@@ -36,7 +36,7 @@ const LobbyPage = () => {
   if (gameActive && !isHost) {
     toast.success("Game is starting | Assigning roles");
     setTimeout(() => {
-      navigate(`/room/${gameCode}`);
+      navigate(`/game/${gameCode}`);
     }, 2000);
   }
 
