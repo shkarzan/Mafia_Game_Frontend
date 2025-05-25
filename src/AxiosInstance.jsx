@@ -34,7 +34,7 @@ api.interceptors.response.use(
     }
     if (error.response && error.response.status === 404) {
       toast.error("Game Not Found");
-      window.location.href = "/join";
+      window.location.href = "/";
     }
     if (error.response && error.response.status == 500) {
       toast.error("Connection error");

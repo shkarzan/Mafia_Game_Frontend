@@ -68,22 +68,22 @@ const HostPage = () => {
       onConnect: () => {
         client.current.subscribe(`/topic/general/${gameCode}`, (message) => {
           const msg = JSON.parse(message.body);
-          setGeneralMessages(msg);
+          setGeneralMessages((prev) => [...prev, msg]);
         });
 
         client.current.subscribe(`/topic/mafia/${gameCode}`, (message) => {
           const msg = JSON.parse(message.body);
-          setMafiaMessages(msg);
+          setMafiaMessages((prev) => [...prev, msg]);
         });
 
         client.current.subscribe(`/topic/police/${gameCode}`, (message) => {
           const msg = JSON.parse(message.body);
-          setPoliceMessages(msg);
+          setPoliceMessages((prev) => [...prev, msg]);
         });
 
         client.current.subscribe(`/topic/doctor/${gameCode}`, (message) => {
           const msg = JSON.parse(message.body);
-          setDoctorMessages(msg);
+          setDoctorMessages((prev) => [...prev, msg]);
         });
       },
     });

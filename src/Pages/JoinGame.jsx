@@ -22,7 +22,7 @@ const JoinGame = () => {
         sessionStorage.setItem("id", res.data.id);
         sessionStorage.setItem("gameCode", res.data.gameCode);
         navigate(`/lobby/${gameCode}`);
-      }, 3000);
+      }, 2000);
     } catch (error) {
       if (error.status == 400) {
         toast.error("Username already taken");
