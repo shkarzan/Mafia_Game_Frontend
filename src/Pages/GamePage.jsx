@@ -90,24 +90,24 @@ const GamePage = () => {
             const msg = JSON.parse(message.body);
             setGeneralMessages((prev) => [...prev, msg]);
           });
-          if (currentRole === "Mafia") {
-            client.current.subscribe(`/topic/mafia/${gameCode}`, (message) => {
-              const msg = JSON.parse(message.body);
-              setMafiaMessages((prev) => [...prev, msg]);
-            });
-          }
-          if (currentRole === "Police") {
-            client.current.subscribe(`/topic/police/${gameCode}`, (message) => {
-              const msg = JSON.parse(message.body);
-              setPoliceMessages((prev) => [...prev, msg]);
-            });
-          }
-          if (currentRole === "Doctor") {
-            client.current.subscribe(`/topic/doctor/${gameCode}`, (message) => {
-              const msg = JSON.parse(message.body);
-              setDoctorMessages((prev) => [...prev, msg]);
-            });
-          }
+          // if (currentRole === "Mafia") {
+          client.current.subscribe(`/topic/mafia/${gameCode}`, (message) => {
+            const msg = JSON.parse(message.body);
+            setMafiaMessages((prev) => [...prev, msg]);
+          });
+          // }
+          // if (currentRole === "Police") {
+          client.current.subscribe(`/topic/police/${gameCode}`, (message) => {
+            const msg = JSON.parse(message.body);
+            setPoliceMessages((prev) => [...prev, msg]);
+          });
+          // }
+          // if (currentRole === "Doctor") {
+          client.current.subscribe(`/topic/doctor/${gameCode}`, (message) => {
+            const msg = JSON.parse(message.body);
+            setDoctorMessages((prev) => [...prev, msg]);
+          });
+          // }
         },
       });
 
