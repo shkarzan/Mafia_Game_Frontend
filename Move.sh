@@ -1,0 +1,1 @@
+cp -r dist/* ../MafiaGame/src/main/resources/static/

@@ -1,0 +1,1 @@
+rm -rf ../MafiaGame/src/main/resources/static/*
