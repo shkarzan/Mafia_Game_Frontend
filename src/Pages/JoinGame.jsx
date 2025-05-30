@@ -4,13 +4,16 @@ import { useNavigate } from "react-router-dom";
 import "./CreateGame.css";
 import api from "../AxiosInstance";
 import { toast } from "react-toastify";
+import LoadingIndicator from "../components/LoadingIndicator";
 
 const JoinGame = () => {
   const [gameCode, setGameCode] = useState("");
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const handleJoinGame = async () => {
+    setLoading(true);
     try {
       const res = await api.post(
         `/game/${gameCode}/join?username=${username}`,
@@ -28,6 +31,8 @@ const JoinGame = () => {
         toast.error("Username already taken");
       }
       console.error("Error joining game:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -49,6 +54,7 @@ const JoinGame = () => {
           onChange={(e) => setUsername(e.target.value)}
           className="input-field"
         />
+        {loading && <LoadingIndicator />}
         <button className="primary-btn" onClick={handleJoinGame}>
           Join Game
         </button>
