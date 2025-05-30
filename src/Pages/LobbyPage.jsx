@@ -27,7 +27,7 @@ const LobbyPage = () => {
       }
 
       // Update game status
-      if (response.data.length >= 8) {
+      if (response.data.length >= 6) {
         setGameStatus("Ready to Start");
       }
     } catch (error) {
