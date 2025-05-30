@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./CreateGame.css";
 import api from "../AxiosInstance";
+import LoadingIndicator from "../components/LoadingIndicator";
 
 const CreateGame = () => {
   const [username, setUsername] = useState("");
@@ -38,6 +39,7 @@ const CreateGame = () => {
           onChange={(e) => setUsername(e.target.value)}
           className="input-field"
         />
+        {loading && <LoadingIndicator />}
         <button className="primary-btn" onClick={handleCreateGame}>
           Create Game
         </button>

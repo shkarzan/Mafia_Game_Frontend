@@ -3,6 +3,7 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 import "./LobbyPage.css";
 import api from "../AxiosInstance";
 import { toast } from "react-toastify";
+import LoadingIndicator from "../components/LoadingIndicator";
 
 const LobbyPage = () => {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ const LobbyPage = () => {
   const [mafiaCount, setMafiaCount] = useState(0);
   const [gameStatus, setGameStatus] = useState("Waiting for Players");
   const [gameActive, setGameActive] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   // Fetch the list of players from the backend
   const fetchPlayers = async () => {
@@ -84,6 +86,7 @@ const LobbyPage = () => {
 
   // Start the game (host only action)
   const handleStartGame = async () => {
+    setLoading(true);
     try {
       if (mafiaCount !== 0) {
         await api.post(`/game/${gameCode}/start?mafiaCount=${mafiaCount}`);
@@ -92,19 +95,25 @@ const LobbyPage = () => {
       } else toast.error("Number of Mafias should be greater than 0");
     } catch (error) {
       console.error("Error starting game:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleDeleteRoom = async () => {
+    setLoading(true);
     try {
       const res = await api.delete(`/game/${gameCode}`);
       toast.success(res.data);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleExitRoom = async () => {
+    setLoading(true);
     try {
       if (sessionStorage.getItem("id")) {
         const id = sessionStorage.getItem("id");
@@ -115,6 +124,8 @@ const LobbyPage = () => {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -151,6 +162,7 @@ const LobbyPage = () => {
       <button disabled={isHost} onClick={handleExitRoom}>
         Exit Button
       </button>
+      {loading && <LoadingIndicator />}
       <button disabled={!isHost} onClick={handleDeleteRoom}>
         Delete Room
       </button>
