@@ -6,7 +6,7 @@ This is the **React frontend** for the real-time multiplayer **Mafia Game**. Pla
 
 ## 🔗 Related Repo
 
-> 👉 [Mafia Game Backend (Spring Boot)](https://github.com/shkarza/Mafia_Game.git)
+> 👉 [Mafia Game Backend (Spring Boot)](https://github.com/shkarzan/Mafia_Game)
 
 ---
 
