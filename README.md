@@ -1,12 +1,43 @@
-# React + Vite
+# 🎭 Mafia Game - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the **React frontend** for the real-time multiplayer **Mafia Game**. Players are assigned secret roles and interact in day/night phases. Communicate, vote, and strategize to win — all through a clean and interactive UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 Related Repo
 
-## Expanding the ESLint configuration
+> 👉 [Mafia Game Backend (Spring Boot)](https://github.com/shkarza/Mafia_Game.git)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧩 Key Features
+
+- 🌐 Lobby system with player list and host control
+- 🧠 Dynamic UI per role (Mafia, Doctor, Police, Citizen)
+- 💬 General chat & secret Mafia chat
+- ⚡ WebSocket-based real-time updates
+- 🎯 Role actions (Kill / Save / Investigate)
+- 📱 Responsive layout (mobile-friendly)
+
+
+## 🛠 Tech Stack
+
+- **React** (with JSX or TSX)
+- **WebSocket** (socket.io or native)
+- **Tailwind CSS** (or plain CSS modules)
+- **React Router** for navigation
+
+---
+
+## ⚙️ Setup Instructions
+
+```bash
+# Clone the repo
+git clone https://github.com/shkarzan/Mafia_Game_Frontend.git
+cd mafia-game-frontend
+
+# Install dependencies
+npm install
+
+# Start development server
+npm start
